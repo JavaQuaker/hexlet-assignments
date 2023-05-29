@@ -22,13 +22,15 @@ public class App {
         return map;
     }
     public static String toString(Map map) {
-        System.out.println("{");
-        for (Object key : map.keySet()) {
-            System.out.println("  " + key + ":" + " " + map.get(key) );
+            StringBuilder str = new StringBuilder();
+            System.out.println("{");
+            for (Object key : map.keySet()) {
+                str.append("  " + key + ":" + " " + map.get(key) + "\n");
+            }
+            System.out.println(str);
+            System.out.println("}");
+            return str.toString().trim();
         }
-        System.out.println("}");
-        return map.toString();
-    }
 }
 
 //END

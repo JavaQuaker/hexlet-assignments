@@ -7,4 +7,5 @@ interface KeyValueStorage {
     void unset(String key);
     String get(String key, String defaultValue);
     Map<String, String> toMap();
+
 }

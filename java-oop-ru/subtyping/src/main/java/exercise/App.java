@@ -8,17 +8,22 @@ import java.util.Set;
 
 // BEGIN
 public class App {
+
     public static Map<String, String> swapKeyValue(KeyValueStorage storage) {
         Map<String, String> map = storage.toMap();
         Map<String, String> result = new HashMap<>();
-        for (Map.Entry<String, String> entry : map.entrySet()) {
+        for (Entry<String, String> entry : map.entrySet()) {
             result.put(entry.getValue(), entry.getKey());
+            storage.unset(entry.getKey());
         }
 
-        for (Map.Entry<String, String> entry : result.entrySet()) {
+        for (Entry<String, String> entry : result.entrySet()) {
+
             storage.set(entry.getKey(), entry.getValue());
+
         }
-        return result;
+        return  result;
     }
+
 }
 // END

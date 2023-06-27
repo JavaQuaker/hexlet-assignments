@@ -1,8 +1,8 @@
 package exercise;
 
-import java.util.Arrays;
+
 import java.util.HashMap;
-import java.util.LinkedHashMap;
+
 import java.util.Map;
 
 // BEGIN
@@ -25,15 +25,15 @@ public class App {
         return map;
     }
     public static String toString(Map map) {
-            StringBuilder str = new StringBuilder();
-            System.out.println("{");
-            for (Object key : map.keySet()) {
-                str.append(" ").append(key).append(":" + " ").append(map.get(key)).append("\n");
-            }
-            System.out.println(str.toString().replaceAll("\\s+$", ""));
-            System.out.println("}");
-            return str.toString();
+        StringBuilder str = new StringBuilder();
+        System.out.println("{");
+        for (Object key : map.keySet()) {
+            str.append(" ").append(key).append(":" + " ").append(map.get(key)).append("\n");
         }
+        System.out.println(str.toString().replaceAll("\\s+$", ""));
+        System.out.println("}");
+        return str.toString();
+    }
 
     public static void main(String[] args) {
         toString(getWordCount(sentence1));

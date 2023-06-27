@@ -26,12 +26,12 @@ public class App {
     }
     public static String toString(Map map) {
         StringBuilder str = new StringBuilder();
-        System.out.println(" { ");
+        System.out.println("// {");
         for (Object key : map.keySet()) {
-            str.append("  ").append(key).append(":" + " ").append(map.get(key)).append("\n");
+            str.append("//   ").append(key).append(":" + " ").append(map.get(key)).append("\n");
         }
-        System.out.println(str.toString().replaceAll("\\s+$", " "));
-        System.out.println(" } ");
+        System.out.println(str.toString().replaceAll("\\s+$", ""));
+        System.out.println("// }");
         return str.toString();
     }
 

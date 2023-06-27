@@ -30,7 +30,7 @@ public class App {
         for (Object key : map.keySet()) {
             str.append("  ").append(key).append(":" + " ").append(map.get(key)).append("\n");
         }
-        System.out.println(str.toString().replaceAll("\\s+$", ""));
+        System.out.println(str.toString().replaceAll("\\s+$", " "));
         System.out.println("}");
         return str.toString();
     }

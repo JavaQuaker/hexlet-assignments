@@ -7,7 +7,7 @@ import java.util.Map;
 
 // BEGIN
 public class App {
-    static String sentence1 = "word text cat apple word apple word";
+    static String sentence1 = "the java is the best programming language java";
     public static Map  getWordCount(String sentence) {
         Map<String, Integer> map = new HashMap<>();
         String[] str = sentence.replaceAll("(^\\s+|\\s+$)", "").split("\\s+");
@@ -24,17 +24,16 @@ public class App {
         }
         return map;
     }
-    public static String toString(Map map) {
-        StringBuilder str = new StringBuilder();
-        str.append("{\n");
-        for (Object key : map.keySet()) {
-            str.append("  ").append(key).append(":" + " ").append(map.get(key)).append("\n");
+    public static String toString(Map<String, Integer> map) {
+        if (map.isEmpty()) {
+            return "{}";
         }
-        System.out.println(str.toString().replaceAll("\\s+$", ""));
-        System.out.println("}");
-        return str.toString();
+        StringBuilder builder = new StringBuilder("{\n");
+        for (String key : map.keySet()) {
+            builder.append("  " + key + ":" + " "+ map.get(key) + "\n");
+        }
+        return builder.append("}").toString();
     }
-
     public static void main(String[] args) {
         toString(getWordCount(sentence1));
     }

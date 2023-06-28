@@ -1,13 +1,8 @@
 package exercise;
-
-
 import java.util.HashMap;
-
 import java.util.Map;
-
 // BEGIN
 public class App {
-    static String sentence1 = "the java is the best programming language java";
     public static Map  getWordCount(String sentence) {
         Map<String, Integer> map = new HashMap<>();
         String[] str = sentence.replaceAll("(^\\s+|\\s+$)", "").split("\\s+");
@@ -33,9 +28,6 @@ public class App {
             builder.append("  " + key + ":" + " "+ map.get(key) + "\n");
         }
         return builder.append("}").toString();
-    }
-    public static void main(String[] args) {
-        toString(getWordCount(sentence1));
     }
 }
 

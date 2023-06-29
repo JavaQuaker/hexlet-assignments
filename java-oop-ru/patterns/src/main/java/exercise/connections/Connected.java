@@ -10,6 +10,14 @@ public class Connected implements Connection {
         this.tcpConnection = tcpConnection;
     }
 
+    public TcpConnection getTcpConnection() {
+        return tcpConnection;
+    }
+
+    public void setTcpConnection(TcpConnection tcpConnection) {
+        this.tcpConnection = tcpConnection;
+    }
+
     @Override
     public String getCurrentState() {
         return "connected";

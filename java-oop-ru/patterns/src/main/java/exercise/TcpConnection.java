@@ -63,7 +63,7 @@ public class TcpConnection implements Connection {
 
     @Override
     public void write(String data) {
-
+        System.out.println("");
     }
 
 }

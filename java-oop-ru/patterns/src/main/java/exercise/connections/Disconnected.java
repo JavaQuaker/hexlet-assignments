@@ -12,12 +12,12 @@ public class Disconnected implements Connection {
 
     @Override
     public String getCurrentState() {
-        return "disconnect";
+        return "disconnected";
     }
 
     @Override
     public void connect() {
-
+        System.out.println("Try to connect when connection already established. Message must contains word Error");
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Disconnected implements Connection {
 
     @Override
     public void write(String data) {
-
+        System.out.println("two");
     }
 }
 

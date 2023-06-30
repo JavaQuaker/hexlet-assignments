@@ -10,13 +10,6 @@ public class Connected implements Connection {
         this.tcpConnection = tcpConnection;
     }
 
-    public TcpConnection getTcpConnection() {
-        return tcpConnection;
-    }
-
-    public void setTcpConnection(TcpConnection tcpConnection) {
-        this.tcpConnection = tcpConnection;
-    }
 
     @Override
     public String getCurrentState() {
@@ -25,7 +18,7 @@ public class Connected implements Connection {
 
     @Override
     public void connect() {
-        System.out.println("");
+        System.out.println("Error");
     }
 
     @Override
@@ -36,7 +29,8 @@ public class Connected implements Connection {
 
     @Override
     public void write(String data) {
-        System.out.println("");
+        System.out.println("one");
+        this.connect();
 
     }
 }

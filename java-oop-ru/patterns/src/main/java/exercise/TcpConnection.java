@@ -12,14 +12,20 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 // BEGIN
-public class TcpConnection implements Connection {
+public class TcpConnection {
     private Connection connection;
+
     private String ip;
     private int data;
+//    public TcpConnection() {
+//        this.connection = new Connected(this);
+//    }
     public TcpConnection(String ip, int data) {
         this.ip = ip;
         this.data = data;
+        this.connection = new Connected(this);
     }
+
     public Connection getConnection() {
         return connection;
     }
@@ -45,25 +51,27 @@ public class TcpConnection implements Connection {
     }
 
 
-    @Override
+//    @Override
     public String getCurrentState() {
         return this.connection.getCurrentState();
     }
-
-    @Override
+//
+//    @Override
     public void connect() {
         System.out.println("");
+        this.connection.connect();
 
     }
-
-    @Override
+//
+//    @Override
     public void disconnect() {
-        System.out.println("");
+        System.out.println("Try to write to disconnected connection. Message must contains word Error");
+        this.connection.disconnect();
     }
-
-    @Override
+//
+//    @Override
     public void write(String data) {
-        System.out.println("");
+        System.out.println("Try to write to disconnected connection. Message must contains word Error");
     }
 
 }

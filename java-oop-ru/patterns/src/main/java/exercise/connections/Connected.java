@@ -9,8 +9,6 @@ public class Connected implements Connection {
     public Connected(TcpConnection tcpConnection) {
         this.tcpConnection = tcpConnection;
     }
-
-
     @Override
     public String getCurrentState() {
         return "connected";
@@ -20,13 +18,11 @@ public class Connected implements Connection {
     public void connect() {
         System.out.println("Error");
     }
-
     @Override
     public void disconnect() {
         TcpConnection c = this.tcpConnection;
         c.setConnection(new Disconnected(c));
     }
-
     @Override
     public void write(String data) {
         System.out.println("one");

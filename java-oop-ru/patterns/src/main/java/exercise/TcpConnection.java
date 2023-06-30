@@ -14,12 +14,9 @@ import java.util.concurrent.Executor;
 // BEGIN
 public class TcpConnection {
     private Connection connection;
-
     private String ip;
     private int data;
-//    public TcpConnection() {
-//        this.connection = new Connected(this);
-//    }
+
     public TcpConnection(String ip, int data) {
         this.ip = ip;
         this.data = data;
@@ -50,26 +47,20 @@ public class TcpConnection {
         this.data = data;
     }
 
-
-//    @Override
     public String getCurrentState() {
         return this.connection.getCurrentState();
     }
-//
-//    @Override
+
     public void connect() {
         System.out.println("");
         this.connection.connect();
-
     }
-//
-//    @Override
+
     public void disconnect() {
         System.out.println("Try to write to disconnected connection. Message must contains word Error");
         this.connection.disconnect();
     }
-//
-//    @Override
+
     public void write(String data) {
         System.out.println("Try to write to disconnected connection. Message must contains word Error");
     }

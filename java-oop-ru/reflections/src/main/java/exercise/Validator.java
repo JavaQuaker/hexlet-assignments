@@ -6,9 +6,6 @@ import java.util.List;
 import java.lang.reflect.Field;
 // BEGIN
 public class Validator {
-    private static MinLength minLength;
-    private static Address address;
-
 
     public static List validate(Address address) {
         List<String> list = new ArrayList<>();

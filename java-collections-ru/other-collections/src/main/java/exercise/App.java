@@ -49,15 +49,5 @@ public class App {
         }
         return objectOne.equals(objectTwo);
     }
-
-//    public static void main(String[] args) {
-//        Map<String, Object> data1 = new HashMap<>(
-//                Map.of("one", "eon", "two", "two", "four", true)
-//        );
-//        Map<String, Object> data2 = new HashMap<>(
-//                Map.of("two", "own", "zero", 4, "four", true)
-//        );
-//        System.out.println(genDiff(data1, data2));
-//    }
 }
 //END

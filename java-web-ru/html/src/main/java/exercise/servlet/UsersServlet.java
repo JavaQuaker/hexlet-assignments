@@ -123,10 +123,11 @@ public class UsersServlet extends HttpServlet {
                     """);
         List<Map<String, String>> result = getUsers();
         PrintWriter print = response.getWriter();
+        boolean x = false;
         for (Map<String, String> map : result) {
-            if ((id == null) || (id.isEmpty())) {
-                response.sendError(404, "Not found");
-            } else {
+
+            if ((id != null) && (!id.isEmpty())) {
+                x = true;
                 id = map.get("id");
                 String firstName = map.get("firstName");
                 String lastName = map.get("lastName");
@@ -143,6 +144,9 @@ public class UsersServlet extends HttpServlet {
                     </html>
                     """);
 
+        }
+        if (!x) {
+            response.sendError(404, "Not found");
         }
             print.println(body.toString());
         }

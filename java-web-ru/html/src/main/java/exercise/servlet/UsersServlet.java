@@ -126,7 +126,7 @@ public class UsersServlet extends HttpServlet {
         boolean x = false;
         for (Map<String, String> map : result) {
 
-            if ((id != null) && (!id.isEmpty())) {
+            if (map.get("id").equals(id)) {
                 x = true;
                 id = map.get("id");
                 String firstName = map.get("firstName");
@@ -146,7 +146,7 @@ public class UsersServlet extends HttpServlet {
 
         }
         if (!x) {
-            response.sendError(404, "Not found");
+            response.sendError(404, "Not Found");
         }
             print.println(body.toString());
         }

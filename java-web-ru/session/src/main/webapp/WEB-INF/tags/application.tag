@@ -44,7 +44,7 @@
            <c:if test="${sessionScope.flash != null}">
            <div class="alert alert-info" role="alert">
            <c:set var="flash" value="${sessionScope.flash}" />
-           <<c:remove var="sessionScope.flash" />
+           <c:remove var="sessionScope.flash" />
            </div>
             <!-- END -->
             <jsp:doBody />

@@ -46,6 +46,7 @@
            <c:set var="flash" value="${sessionScope.flash}" />
            <c:remove var="sessionScope.flash" />
            </div>
+           </c:if>
             <!-- END -->
             <jsp:doBody />
         </div>

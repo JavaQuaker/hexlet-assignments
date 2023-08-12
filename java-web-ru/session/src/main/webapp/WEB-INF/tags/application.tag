@@ -43,7 +43,8 @@
             <!-- BEGIN -->
            <c:if test="${not empty flash}">
             <div class="alert alert-info" role="alert">
-               ${flash.message}
+             ${sessionScope.flash}
+
              </div>
            </c:if>
             <!-- END -->

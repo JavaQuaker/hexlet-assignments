@@ -41,7 +41,7 @@
         </nav>
         <div class="container mt-3">
             <!-- BEGIN -->
-           <c:if test="${sessionScope.flash != null}">
+           <c:if test="${not empty sessionScope.flash}">
            <div class="alert alert-info" role="alert">
            <c:set var="flash" value="${sessionScope.flash}" />
            <c:remove var="sessionScope.flash" />

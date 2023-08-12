@@ -41,13 +41,10 @@
         </nav>
         <div class="container mt-3">
             <!-- BEGIN -->
-           <c:if test="${not empty sessionScope.flash}">
-               <%-- Получаем значение flash сообщения и удаляем его из объекта сессии --%>
-               <c:set var="flash" value="${sessionScope.flash}" />
-               <<c:remove var="sessionScope.flash" />
-
-               <%-- Выводим сообщение в блоке div с классом "alert alert-info" --%>
-               <div class="alert alert-info">${flash}</div>
+           <c:if test="${not empty flash}">
+             <div class="alert alert-${flash.type}" role="alert">
+               ${flash.message}
+             </div>
            </c:if>
             <!-- END -->
             <jsp:doBody />

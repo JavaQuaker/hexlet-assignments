@@ -44,8 +44,8 @@
            <c:if test="${not empty flash}">
             <div class="alert alert-info" role="alert">
              ${sessionScope.flash}
-
              </div>
+              <% session.removeAttribute("flash"); %>
            </c:if>
             <!-- END -->
             <jsp:doBody />

@@ -62,32 +62,47 @@ public class ArticlesServlet extends HttpServlet {
         ServletContext context = request.getServletContext();
         Connection connection = (Connection) context.getAttribute("dbConnection");
         // BEGIN
-        List<Map<String, String>> posts = new ArrayList<>();
+        List<Map<String, String>> articles = new ArrayList<>();
         int perPage = 10;
-        int page = ((request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"))));
-        int start = (page - 1)*(perPage);
-        String query = "SELECT * FROM post ORDER BY id ASC LIMIT 10 OFFSET ?";
+        int page = ((request.getParameter("page") == null ? 1 : Integer.parseInt(getInitParameter("page"))));
+        int start = (perPage - 1) * (page);
+
+        // Запрос для получения данных компании. Вместо знака ? буду подставлены определенные значения
+        String query = "SELECT * FROM articles ORDER BY id ASC LIMIT 10 OFFSET ?";
+
         try {
+            // Используем PreparedStatement
+            // Он позволяет подставить в запрос значения вместо знака ?
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, start);
+            // Указываем номер позиции в запросе (номер начинается с 1) и значение,
+            // которое будет подставлено
+            statement.setInt(page, start);
 
-
+            // Выполняем запрос
+            // Результат выполнения представлен объектом ResultSet
             ResultSet rs = statement.executeQuery();
+
+            // При помощи метода next() можно итерировать по строкам в результате
+            // Указатель перемещается на следующую строку в результатах
             while (rs.next()) {
-                posts.add(Map.of(
-                "id", rs.getString("id"),
-                        "title", rs.getString("title"),
-                        "body", rs.getString("body")
-                   )
+                articles.add(Map.of(
+                                // Так можно получить значение нужного поля в текущей строке
+                                "id", rs.getString("id"),
+                                "title", rs.getString("title"),
+                                "body", rs.getString("body")
+                        )
                 );
             }
+
         } catch (SQLException e) {
-
-
+            // Если произошла ошибка, устанавливаем код ответа 500
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             return;
         }
-        request.setAttribute("posts", posts);
+        // Устанавливаем значения атрибутов
+        request.setAttribute("articles", articles);
+        // Передаём данные в шаблон
+
         // END
         TemplateEngineUtil.render("articles/index.html", request, response);
     }
@@ -99,15 +114,17 @@ public class ArticlesServlet extends HttpServlet {
         ServletContext context = request.getServletContext();
         Connection connection = (Connection) context.getAttribute("dbConnection");
         // BEGIN
-        Map<String, String> post = new HashMap<>();
-        String query = "SELECT id, title, body FROM post WHERE id = ?";
+        Map<String, String> article = new HashMap<>();
+        String id = getId(request);
+        String query = "SELECT id, title, body FROM posts WHERE id = ?";
         try {
-            int id = Integer.parseInt(request.getParameter("id"));
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, id);
+            statement.setInt(1, Integer.parseInt(id));
             ResultSet rs = statement.executeQuery();
+
             while (rs.next()) {
-                post.putAll(Map.of(
+                article.putAll(Map.of(
+                                // Так можно получить значение нужного поля в текущей строке
                                 "id", rs.getString("id"),
                                 "title", rs.getString("title"),
                                 "body", rs.getString("body")
@@ -116,12 +133,13 @@ public class ArticlesServlet extends HttpServlet {
             }
 
         } catch (SQLException e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-                return;
-        }
-        request.setAttribute("post", post);
 
+            // Если произошла ошибка, устанавливаем код ответа 500
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            return;
+        }
+        request.setAttribute("article", article);
         // END
-        TemplateEngineUtil.render("articles/show.html", request, response);
+        TemplateEngineUtil.render("article/show.html", request, response);
     }
 }

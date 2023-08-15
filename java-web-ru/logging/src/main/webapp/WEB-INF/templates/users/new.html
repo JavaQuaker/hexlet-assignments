@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-layout:decorate="~{layouts/application.html}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/application.html}">
 
 <head>
   <title>Sign Up</title>
 </head>
 <section layout:fragment="content">
   <!-- BEGIN -->
-  <form action="url" method="post">
+  <form action="/users/list" method="post">
     <div class="mb-3">
       <label>Имя</label>
-      <input class="form-control" type="text" name="firstName" value="${firstName}">
+      <input class="form-control" type="text" name="firstName" th:value='${user.getOrDefault("firstName", "")}'>
+    </div>
+    <div class="mb-3">
       <label>Фамилия</label>
-      <input class="form-control" type="text" name="lastName" value="${lastName}">
+      <input class="form-control" type="text" name="lastName" th:value='${user.getOrDefault("lastName", "")}'>
+    </div>
+    <div class="mb-3">
       <label>Email</label>
-      <input class="form-control" type="text" name="email" value="${email}">
+      <input class="form-control" type="email" th:name="email">
+    </div>
+    <div class="mb-3">
+      <label>Password</label>
+      <input class="form-control" type="password" th:name="password">
     </div>
     <button class="btn btn-primary" type="submit">Создать</button>
   </form>

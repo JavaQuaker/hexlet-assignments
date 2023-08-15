@@ -83,7 +83,8 @@ public class UsersServlet extends HttpServlet {
 
             body.append("<table>");
             body.append("<tr>"+ "<th>" + "id" + "</th>" + "<th>" + "fullName" +"</th>" + "</tr>");
-            body.append("<tr>" + "<td>" + id + "</td>" + "<td>" + "<a href='/users/" + id + "'>" + fullName + "</a>" + "</td>" + "</tr>");
+            body.append("<tr>" + "<td>" + id + "</td>" + "<td>" + "<a href='/users/" + id + "'>" + fullName + "</a>"
+                    + "</td>" + "</tr>");
             body.append("</table>");
 
             response.setContentType("text/html;charset=UTF-8");
@@ -99,8 +100,6 @@ public class UsersServlet extends HttpServlet {
     }
 
         // END
-
-
     private void showUser(HttpServletRequest request,
                          HttpServletResponse response,
                          String id)

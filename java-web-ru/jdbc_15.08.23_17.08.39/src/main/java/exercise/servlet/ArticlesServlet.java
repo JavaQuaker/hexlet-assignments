@@ -116,7 +116,7 @@ public class ArticlesServlet extends HttpServlet {
         // BEGIN
         Map<String, String> article = new HashMap<>();
         String id = getId(request);
-        String query = "SELECT id, title, body FROM posts WHERE id = ?";
+        String query = "SELECT id, title, body FROM article WHERE id = ?";
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, Integer.parseInt(id));
@@ -140,6 +140,6 @@ public class ArticlesServlet extends HttpServlet {
         }
         request.setAttribute("article", article);
         // END
-        TemplateEngineUtil.render("article/show.html", request, response);
+        TemplateEngineUtil.render("articles/index.html", request, response);
     }
 }

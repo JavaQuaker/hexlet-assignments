@@ -252,7 +252,7 @@ public class ArticlesServlet extends HttpServlet {
         String body = request.getParameter("body");
 
         // BEGIN
-       String query = "UPDATE article SET title=?, body=? WHERE id=?";
+       String query = "UPDATE articles SET title=?, body=? WHERE id=?";
 
        try {
            PreparedStatement statement = connection.prepareStatement(query);
@@ -309,7 +309,7 @@ public class ArticlesServlet extends HttpServlet {
         String id = getId(request);
 
         // BEGIN
-        String query = "DELETE article WHERE id=?";
+        String query = "DELETE articles WHERE id=?";
        try {
            PreparedStatement statement = connection.prepareStatement(query);
            statement.setString(1, id);

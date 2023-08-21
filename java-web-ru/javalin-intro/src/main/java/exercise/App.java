@@ -9,7 +9,7 @@ public final class App {
     public static Javalin getApp() {
 
         // BEGIN
-        var app = Javalin.create(config -> {
+        Javalin app = Javalin.create(config -> {
             // Включаем логгирование при разработке
             config.plugins.enableDevLogging();
         });

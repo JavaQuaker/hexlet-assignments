@@ -21,7 +21,6 @@ public final class App {
             List<Map<String, String>> result = Data.getUsers().stream()
                     .skip((long) (page - 1) * per)
                     .limit(per)
-
                     .collect(Collectors.toList());
 
             ctx.json(result);

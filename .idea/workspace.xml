@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8424e64-c8e3-43b2-817d-60b2f3b926c5" name="Changes" comment="" />
+    <list default="true" id="a8424e64-c8e3-43b2-817d-60b2f3b926c5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session/src/main/java/exercise/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/java-web-ru/http-session/src/main/java/exercise/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/README.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/examples/Example.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/src/main/java/exercise/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/src/main/java/exercise/Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_10.32.44/src/test/java/exercise/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_11.42.22/src/main/java/exercise/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/java-web-ru/http-session_22.08.23_11.42.22/src/main/java/exercise/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/javalin-intro/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/java-web-ru/javalin-intro/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-web-ru/javalin-intro/src/main/java/exercise/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/java-web-ru/javalin-intro/src/main/java/exercise/App.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,13 +37,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "//wsl$/Ubuntu/home/alexey/Hexlet/hexlet-assignments"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu/home/alexey/Hexlet/hexlet-assignments&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

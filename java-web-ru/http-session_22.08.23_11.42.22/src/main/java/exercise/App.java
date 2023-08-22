@@ -21,7 +21,6 @@ public final class App {
 
         // BEGIN
         app.get("/users", ctx -> {
-
             Integer page = ctx.queryParamAsClass("page", Integer.class).getOrDefault(1);
             Integer per = ctx.queryParamAsClass("per", Integer.class).getOrDefault(5);
             List<Map<String, String>> result = Data.getUsers().stream()

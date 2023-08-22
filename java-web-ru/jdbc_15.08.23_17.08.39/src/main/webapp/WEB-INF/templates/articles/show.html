@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/application.html}">
 
 <head>
@@ -7,20 +7,7 @@
 </head>
 <section layout:fragment="content">
   <!-- BEGIN -->
-  <table class="table">
-    <thead>
-    <th>ID</th>
-    <th>Название</th>
-    </thead>
-    <tbody>
-    // Вывод результата в цикле
-    <tr th:each="post : ${post}" th:object="${post}">
-      <td th:text="*{id}"></td>
-      <td>
-        <a th:text="*{title}" th:href="@{/companies/{id}(id=*{id})}"></a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <h3 th:text="${article.title}"></h3>
+  <p th:text="${article.body}"></p>
   <!-- END -->
 </section>

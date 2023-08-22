@@ -1,8 +1,10 @@
 package exercise;
 
 // BEGIN
-import io.javalin.Javalin;
+
 // END
+
+import io.javalin.Javalin;
 
 public final class App {
 
@@ -20,10 +22,10 @@ public final class App {
         return app;
     }
         // END
-
+    }
 
     public static void main(String[] args) {
         Javalin app = getApp();
-        app.start(8000);
+        app.start(7070);
     }
 }

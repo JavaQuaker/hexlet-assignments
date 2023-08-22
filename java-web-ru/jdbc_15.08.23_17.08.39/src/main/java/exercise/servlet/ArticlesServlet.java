@@ -37,6 +37,22 @@ public class ArticlesServlet extends HttpServlet {
         String[] pathParts = pathInfo.split("/");
         return ArrayUtils.get(pathParts, 2, getId(request));
     }
+    private Map<String, String> getArticleById(String id, Connection connection) throws SQLException {
+        String query = "SELECT * FROM articles WHERE id=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, id);
+        ResultSet rs = statement.executeQuery();
+
+        if (!rs.first()) {
+            return null;
+        }
+
+        return Map.of(
+                "id", id,
+                "title", rs.getString("title"),
+                "body", rs.getString("body")
+        );
+    }
 
     @Override
     public void doGet(HttpServletRequest request,
@@ -63,12 +79,12 @@ public class ArticlesServlet extends HttpServlet {
         Connection connection = (Connection) context.getAttribute("dbConnection");
         // BEGIN
         List<Map<String, String>> articles = new ArrayList<>();
-        int perPage = 10;
-        int page = ((request.getParameter("page") == null ? 1 : Integer.parseInt(getInitParameter("page"))));
-        int start = (perPage - 1) * (page);
+        int articlesPerPage = 10;
+        String page = request.getParameter("page");
+        int normalizedPage = page == null ? 1 : Integer.parseInt(page);
+        int offset = (normalizedPage - 1) * articlesPerPage;
 
-        // Запрос для получения данных компании. Вместо знака ? буду подставлены определенные значения
-        String query = "SELECT * FROM articles ORDER BY id ASC LIMIT 10 OFFSET ?";
+        String query = "SELECT * FROM articles ORDER BY id LIMIT ? OFFSET ?";
 
         try {
             // Используем PreparedStatement
@@ -76,8 +92,8 @@ public class ArticlesServlet extends HttpServlet {
             PreparedStatement statement = connection.prepareStatement(query);
             // Указываем номер позиции в запросе (номер начинается с 1) и значение,
             // которое будет подставлено
-            statement.setInt(page, start);
-
+            statement.setInt(1, articlesPerPage);
+            statement.setInt(2, offset);
             // Выполняем запрос
             // Результат выполнения представлен объектом ResultSet
             ResultSet rs = statement.executeQuery();
@@ -100,8 +116,9 @@ public class ArticlesServlet extends HttpServlet {
             return;
         }
         // Устанавливаем значения атрибутов
+
         request.setAttribute("articles", articles);
-        // Передаём данные в шаблон
+        request.setAttribute("page", page);
 
         // END
         TemplateEngineUtil.render("articles/index.html", request, response);
@@ -114,23 +131,24 @@ public class ArticlesServlet extends HttpServlet {
         ServletContext context = request.getServletContext();
         Connection connection = (Connection) context.getAttribute("dbConnection");
         // BEGIN
-        Map<String, String> article = new HashMap<>();
+        Map<String, String> article;
         String id = getId(request);
-        String query = "SELECT id, title, body FROM article WHERE id = ?";
+//        String query = "SELECT id, title, body FROM articles WHERE id = ?";
         try {
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, Integer.parseInt(id));
-            ResultSet rs = statement.executeQuery();
+            article = getArticleById(id, connection);
+//            PreparedStatement statement = connection.prepareStatement(query);
+//            statement.setInt(1, Integer.parseInt(id));
+//            ResultSet rs = statement.executeQuery();
 
-            while (rs.next()) {
-                article.putAll(Map.of(
-                                // Так можно получить значение нужного поля в текущей строке
-                                "id", rs.getString("id"),
-                                "title", rs.getString("title"),
-                                "body", rs.getString("body")
-                        )
-                );
-            }
+//            while (rs.next()) {
+//                article.putAll(Map.of(
+//                                // Так можно получить значение нужного поля в текущей строке
+//                                "id", rs.getString("id"),
+//                                "title", rs.getString("title"),
+//                                "body", rs.getString("body")
+//                        )
+//                );
+//            }
 
         } catch (SQLException e) {
 
@@ -140,6 +158,6 @@ public class ArticlesServlet extends HttpServlet {
         }
         request.setAttribute("article", article);
         // END
-        TemplateEngineUtil.render("articles/index.html", request, response);
+        TemplateEngineUtil.render("articles/show.html", request, response);
     }
 }

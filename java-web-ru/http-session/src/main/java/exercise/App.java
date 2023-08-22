@@ -15,7 +15,17 @@ public final class App {
         });
 
         // BEGIN
-        app.ctx();
+        app.get("/users", ctx -> {
+            Integer page = ctx.queryParamAsClass("page", Integer.class).getOrDefault(1);
+            Integer per = ctx.queryParamAsClass("per", Integer.class).getOrDefault(5);
+            List<Map<String, String>> result = Data.getUsers().stream()
+                    .skip((long) (page - 1) * per)
+                    .limit(per)
+
+                    .collect(Collectors.toList());
+
+            ctx.json(result);
+        });
         // END
 
         return app;

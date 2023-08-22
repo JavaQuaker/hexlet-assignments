@@ -1,0 +1,3 @@
+2023-08-16 15:57:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ARTICLE" not found; SQL statement:
+SELECT id, title, body FROM article WHERE id = ? [42102-200]

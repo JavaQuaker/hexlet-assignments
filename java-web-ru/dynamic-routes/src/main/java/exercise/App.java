@@ -31,31 +31,19 @@ public final class App {
 
         // BEGIN
 
-        app.get("companies/{id}", ctx -> {
-            String id = ctx.pathParam("id");
-            List<Map<String, String>> result = Data.getCompanies().stream()
-                    .filter(x -> x.get("id").equals(id))
-                            .collect(Collectors.toList());
+       app.get("/companies/{id}", ctx -> {
+           String id = ctx.pathParam("id");
+           Map<String, String> result = COMPANIES.stream()
+                   .filter(x -> x.get("id").equals(id))
+                   .findFirst()
+                   .orElse(null);
 
 
-            Map<String, String> map = result.stream()
-                            .flatMap(x -> x.entrySet().stream())
-                                    .collect(Collectors.toMap(
-                                            Map.Entry::getKey,
-                                            Map.Entry::getValue
-                                    ));
-
-            ctx.json(map);
-
-            List<Map<String, String>> ID = Data.getCompanies().stream()
-                    .filter(x -> x.get("id").equals(id))
-                    .collect(Collectors.toList());
-            if (ID.isEmpty()) {
-                ctx.status(404);
-                ctx.result("Company not found");
-            }
-
-        });
+           if (result == null) {
+               throw new NotFoundResponse("Company not found");
+           }
+           ctx.json(result);
+       });
 
         // END
 

@@ -25,26 +25,23 @@ public final class App {
         });
 
         // BEGIN
-        app.get("/users/{id}", ctx -> {
-            var id = ctx.pathParamAsClass("id", Long.class).get();
+        app.get("users/{id}", ctx -> {
+            Long id = ctx.pathParamAsClass("id", long.class).get();
             User user = Data.getUsers().stream()
-                    .filter(x -> x.getId() == id)
+                    .filter(x -> x.getId()==id)
                     .findFirst()
-                            .orElse(null);
+                    .orElse(null);
             if (user == null) {
                 throw new NotFoundResponse("User not found");
             }
-
             UserPage page = new UserPage(user);
             ctx.render("users/show.jte", Collections.singletonMap("page", page));
-
         });
 
-        app.get("/users", ctx -> {
-           List<User> users = Data.getUsers();
-           UsersPage page = new UsersPage(users);
+        app.get("users/", ctx -> {
+            List<User> users = Data.getUsers();
+            UsersPage page = new UsersPage(users);
             ctx.render("users/index.jte", Collections.singletonMap("page", page));
-
         });
         // END
 

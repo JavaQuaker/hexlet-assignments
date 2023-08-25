@@ -1,5 +1,4 @@
 <!-- BEGIN -->
-@import org.example.Page
 @import gg.jte.Content
 
 @param Page page
@@ -13,13 +12,14 @@
     <title>${page.getTitle()}</title>
 </head>
 <body>
-<h1>${page.getTitle()}</h1>
-<div class="content">
-    ${content}
-</div>
-@if (footer != null)
-    <div class="footer">
-        ${footer}
+    <h1>${page.getTitle()}</h1>
+    <div class="content">
+        ${content}
     </div>
-@endif
-</body><!-- END -->
+    @if (footer != null)
+        <div class="footer">
+            ${footer}
+        </div>
+    @endif
+</body>
+<!-- END -->

@@ -25,7 +25,7 @@ public final class App {
         // BEGIN
         app.get("/users", ctx -> {
            var term = ctx.queryParam("term");
-           List<User> users = new ArrayList<>();
+           List<User> users;
            if (term != null) {
                users = USERS.stream()
                        .filter(x -> StringUtils.startsWithIgnoreCase(x.getFirstName(), term))

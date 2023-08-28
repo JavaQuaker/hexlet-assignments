@@ -37,28 +37,28 @@ public final class App {
         app.post("/users", ctx -> {
 
 
-           String extractionFirstName = ctx.formParam("FirstName");
-           if (ctx.formParam("FirstName") == null) {
+           String extractionFirstName = ctx.formParam("firstName");
+           if (ctx.formParam("firstName") == null) {
                new NullPointerException();
            } else {
-               extractionFirstName = ctx.formParam("FirstName").trim();
+               extractionFirstName = ctx.formParam("firstName").trim();
 
            }
             String firstName = StringUtils.capitalize(extractionFirstName);
 
 
 
-           String extractionLastName = ctx.formParam("LastName");
-           if (ctx.formParam("LastName") == null) {
+           String extractionLastName = ctx.formParam("lastName");
+           if (ctx.formParam("lastName") == null) {
                new NullPointerException();
            } else {
-               extractionLastName = ctx.formParam("LastName").trim();
+               extractionLastName = ctx.formParam("lastName").trim();
            }
            String lastName = StringUtils.capitalize(extractionLastName);
 
 
            String email = ctx.formParam("email").toLowerCase().trim();
-           String password = ctx.formParam(Security.encrypt("password"));
+           String password = Security.encrypt(ctx.formParam("password"));
 
            var user = new User(firstName, lastName, email, password);
            UserRepository.save(user);

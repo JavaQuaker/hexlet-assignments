@@ -19,7 +19,7 @@
                     </td>
                 </tr>
             @endfor
-
+          </table>
             @endif
-        </table>
+
 <!-- END -->

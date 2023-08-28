@@ -1,7 +1,7 @@
 <!-- BEGIN -->
 @import exercise.dto.users.UsersPage
 @param UsersPage page
-
+<main>
  <h1>Search User</h1>
  <form action="/users" method="get">
      <input type="search" name="term" value="${page.getTerm()}" />
@@ -21,5 +21,6 @@
             @endfor
           </table>
             @endif
+            </main>
 
 <!-- END -->

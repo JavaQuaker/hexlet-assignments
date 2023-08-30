@@ -1,5 +1,5 @@
 <!-- BEGIN -->
-
+@import exercise.util.NamedRoutes
 @import exercise.dto.posts.PostsPage
 @param PostsPage page
 
@@ -19,10 +19,19 @@
        <div>
 
             <h2><a href="/posts/${post.getId()}">${post.getName()}</a></h2>
-
        </div>
     @endfor
+    <nav>
+            <ul>
+                <li>
 
+                    <a href="${NamedRoutes.postsPath(page.getList() - 1)}">Prev</a>
+                </li>
+                <li>
+                 <a href="${NamedRoutes.postsPath(page.getList() + 1)}">Next</a>
+                </li>
+            </ul>
+        </nav>
 </html>
 
 <!-- END -->

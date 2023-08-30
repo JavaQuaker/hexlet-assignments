@@ -1,4 +1,5 @@
 <!-- BEGIN -->
+@import exercise.util.NamedRoutes
 @import exercise.dto.posts.PostPage
 @param PostPage page
 
@@ -15,7 +16,9 @@
   <body>
     <div class="mx-auto p-4 py-md-5">
       <main>
-        <h2>"${page.getPost().getBody()}" </h2>
+             <a href="${NamedRoutes.postsPath()}">List of articles</a>
+             <h3>${page.getPost().getName()}</h3>
+             <p>${page.getPost().getBody()}</p>
       </main>
     </div>
   </body>

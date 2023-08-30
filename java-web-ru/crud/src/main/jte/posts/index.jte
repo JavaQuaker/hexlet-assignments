@@ -1,5 +1,5 @@
 <!-- BEGIN -->
-@import exercise.util.NamedRoutes
+
 @import exercise.dto.posts.PostsPage
 @param PostsPage page
 
@@ -17,11 +17,12 @@
 
     @for(var post : page.getPosts())
        <div>
-           <h2><a href="${NamedRoutes.postPath(post.getId())}">${post.getName()}</a></h2>
+
+            <h2><a href="/posts/${post.getId()}">${post.getName()}</a></h2>
 
        </div>
     @endfor
-@endif
+
 </html>
 
 <!-- END -->

@@ -17,15 +17,14 @@ public class PostsController {
 
     // BEGIN
     public static void index(Context ctx) {
-        Integer per = ctx.queryParamAsClass("per", Integer.class).getOrDefault(5);
         Integer list = ctx.formParamAsClass("page", Integer.class).getOrDefault(1);
+        Integer per = ctx.queryParamAsClass("per", Integer.class).getOrDefault(5);
         List<Post> posts = PostRepository.getEntities().stream()
                 .skip((long)(list - 1) * per)
                 .limit(per)
                 .collect(Collectors.toList());
 
-        PostsPage page = new PostsPage(posts, list, per);
-
+        PostsPage page = new PostsPage(posts);
         ctx.render("posts/index.jte", Collections.singletonMap("page", page));
     }
 

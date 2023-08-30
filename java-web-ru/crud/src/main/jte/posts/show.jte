@@ -15,8 +15,7 @@
   <body>
     <div class="mx-auto p-4 py-md-5">
       <main>
-        <h2>"${NamedRoutes.PostsPath(post.getId())}" </h2>
-
+        <h2>"${page.getPost().getBody()}" </h2>
       </main>
     </div>
   </body>

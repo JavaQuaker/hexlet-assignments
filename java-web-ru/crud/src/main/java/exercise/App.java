@@ -19,6 +19,8 @@ public final class App {
         // BEGIN
         app.get("posts", PostsController::index);
         app.get("posts/{id}", PostsController::show);
+
+
         // END
 
         return app;

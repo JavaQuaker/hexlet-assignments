@@ -27,11 +27,6 @@ public class PostsController {
             var name = ctx.formParamAsClass("name", String.class)
                     .check(value -> value.length() >= 2, "Название не должно быть короче двух символов")
                     .get();
-
-//            var body = ctx.formParamAsClass("body", String.class)
-//                    .check(value -> value.length() >= 10, "Пост должен быть не короче 10 символов")
-//                    .get();
-
             var post = new Post(name, body);
             PostRepository.save(post);
             ctx.redirect(NamedRoutes.postsPath());

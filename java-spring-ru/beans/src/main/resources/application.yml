@@ -3,6 +3,8 @@
 spring:
   jpa:
     show-sql: true
+    server:
+      port: 8080
   output:
     ansi:
       enabled: always

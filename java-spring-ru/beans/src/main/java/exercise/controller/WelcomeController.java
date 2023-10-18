@@ -15,7 +15,7 @@ public class WelcomeController {
     @GetMapping(path = "/welcome")
     public String welcome() {
         Daytime hour = Application.getHour();
-        return "it is" + " " + hour + " " + "now! Welcome to Spring!";
+        return "it is" + " " + hour.getName() + " " + "now! Welcome to Spring!";
 
     }
 }

@@ -10,7 +10,7 @@ import exercise.dto.CarCreateDTO;
 import exercise.dto.CarUpdateDTO;
 import exercise.dto.CarDTO;
 import exercise.model.Car;
-import org.springframework.stereotype.Component;
+
 
 // BEGIN
 @Mapper(

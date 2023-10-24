@@ -5,7 +5,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.boot.convert.DataSizeUnit;
+
 
 // BEGIN
 @Getter

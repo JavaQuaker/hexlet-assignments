@@ -30,5 +30,6 @@ public class DataInitializer implements ApplicationRunner {
         userData.setPasswordDigest("123");
         var user = userMapper.map(userData);
         userRepository.save(user);
+
     }
 }

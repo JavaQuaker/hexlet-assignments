@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import java.util.concurrent.CompletableFuture;
-
 import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.nio.file.Files;
@@ -46,7 +45,11 @@ class AppTest {
     }
 
     // BEGIN
-    
+    @Test
+    void testUnionSizeDirect() throws Exception {
+        CompletableFuture<Long> result = App.getDirectorySize("src/test/resources/dir");
+        assertThat(result.get()).isEqualTo(26);
+    }
     // END
 }
 

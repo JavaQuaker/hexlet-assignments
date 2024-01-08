@@ -17,12 +17,10 @@ ENV PATH=$PATH:$GRADLE_HOME/bin
 
 ENV FASTIFY_ADDRESS 0.0.0.0
 
-WORKDIR /docker
+WORKDIR /app
 
-COPY . .
+COPY ./app .
 
-RUN ./gradlew build
-
-CMD build/install/app/bin/app
-
+CMD ["gradle", "bootRun"]
+EXPOSE 3000
 
